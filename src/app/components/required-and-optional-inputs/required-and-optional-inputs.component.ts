@@ -15,7 +15,7 @@ export class RequiredAndOptionalInputsComponent {
     // IMPR NOTE: As we cannot change the value of Input signal like normal signal by using set()
   
 	// @Input() avatar !: string; NOTE:: Adding (!) is for fixing - Property name has no initializer and is not definitely assigned in the constructor.
-	//this will think we know we are going to pass the value but not now but due o this someime we forget to assign then it may cause error that value will not get visible on UI then make it mandatory then how lets see below code.
+	//this will think we know we are going to pass the value but not now but due o this sometime we forget to assign then it may cause error that value will not get visible on UI then make it mandatory then how lets see below code.
 	// In Input function we can pass object and keys as required true this will make it mandatory to pass value
 	// @Input({required: true,}) name! : string
 	// @Input({required: true}) avatar! : string;

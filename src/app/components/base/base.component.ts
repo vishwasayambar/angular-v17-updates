@@ -3,18 +3,21 @@ import {UserService} from "../../services/user.service";
 import {
     RequiredAndOptionalInputsComponent
 } from "../required-and-optional-inputs/required-and-optional-inputs.component";
+import {UsingOutputFunctionComponent} from "../using-output-function/using-output-function.component";
 
 @Component({
     selector: 'app-base',
     standalone: true,
     imports: [
-        RequiredAndOptionalInputsComponent
+        RequiredAndOptionalInputsComponent,
+        UsingOutputFunctionComponent
     ],
     templateUrl: './base.component.html',
     styleUrl: './base.component.css'
 })
 export class BaseComponent {
     userList: Array<any> = [];
+    likes = signal(0);
     selectedUser = signal({
         avatar: "",
         name: "",
@@ -22,6 +25,10 @@ export class BaseComponent {
 
     constructor(private service: UserService) {
         this.fetchUsers();
+    }
+    
+    increaseFollowCount(name: string){
+        this.likes.set(this.likes() + 1);
     }
 
     private fetchUsers() {
